@@ -20,28 +20,33 @@ const TodoItem = ({todo , onDelete, isSelected , onToggleSelect} : Props) => {
         <li className="p-3">
             <div className="flex justify-between items-center">
                 <div className="flex items-center gap-3">
-                    <input 
-                    type="checkbox" 
-                    className="checkbox checkbox-primary 
-                    checkbox-sm"
-                    checked={isSelected}
-                    onChange={() => onToggleSelect(todo.id)}
-                    />
-                    <span className="text-md font-bold">
-                        <span>{todo.text}</span>
-                    </span>
-                    <span 
-                        className =
-                        {'badge badge-sm badge-soft ${todo.priority === "Urgente" ? "badge-error" : todo.priority === "Moyenne" ? "badge-warning" : "badge-success"}'}
-                        
-                        >
-                        {todo.priority}
-                    </span>
+                    <label htmlFor={`todo-checkbox-${todo.id}`} className="flex items-center gap-3 cursor-pointer">
+                        <input 
+                        id={`todo-checkbox-${todo.id}`}
+                        type="checkbox" 
+                        className="checkbox checkbox-primary 
+                        checkbox-sm"
+                        checked={isSelected}
+                        aria-label={`Marquer "${todo.text}" comme complétée`}
+                        onChange={() => onToggleSelect(todo.id)}
+                        />
+                        <span className="text-md font-bold">
+                            <span>{todo.text}</span>
+                        </span>
+                        <span 
+                            className =
+                            {'badge badge-sm badge-soft ${todo.priority === "Urgente" ? "badge-error" : todo.priority === "Moyenne" ? "badge-warning" : "badge-success"}'}
+                            >
+                            {todo.priority}
+                        </span>
+                    </label>
                 </div>
                
                     <button 
                     onClick = {onDelete}
-                    className="btn btn-sm btn-error btn-soft">
+                    className="btn btn-sm btn-error btn-soft"
+                    title="Supprimer cette tâche"
+                    aria-label="Supprimer cette tâche">
                         <Trash className="w-4 h-4 "/>
                     </button>
                 

@@ -90,6 +90,9 @@ function App() {
       <div className=" flex justify-center ">
           <div className="w-2/3 flex flex-col gap-4 my-20 bg-base-300 p-4 rounded-2x1 " >
               <div className="flex flex-row gap-3">
+                  <label htmlFor="priority-select" className="sr-only">
+                     Priorité
+                  </label>
                   <input
                       type="text"
                       className="input w-full"
@@ -98,6 +101,7 @@ function App() {
                       onChange ={(e) => setInput(e.target.value)}
                     />
                     <select 
+                      id="priority-select"
                       className="select w-full "
                       value={priority}
                       onChange={(e) => setPriority(e.target.value as Priority)}
