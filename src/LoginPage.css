@@ -1,0 +1,30 @@
+.animated-card {
+  position: relative;
+  background: linear-gradient(90deg, #1f2937, #1f2937) padding-box,
+              linear-gradient(90deg, #60a5fa, #3b82f6, #60a5fa, #3b82f6) border-box;
+  border: 2px solid transparent;
+  animation: borderAnimation 3s linear infinite;
+}
+
+@keyframes borderAnimation {
+  0% {
+    background: linear-gradient(90deg, #1f2937, #1f2937) padding-box,
+                linear-gradient(0deg, #60a5fa, #3b82f6) border-box;
+  }
+  25% {
+    background: linear-gradient(90deg, #1f2937, #1f2937) padding-box,
+                linear-gradient(90deg, #60a5fa, #3b82f6) border-box;
+  }
+  50% {
+    background: linear-gradient(90deg, #1f2937, #1f2937) padding-box,
+                linear-gradient(180deg, #8c3cbb, #7718c5) border-box;
+  }
+  75% {
+    background: linear-gradient(90deg, #1f2937, #1f2937) padding-box,
+                linear-gradient(270deg, #ec08e1, #d604f1) border-box;
+  }
+  100% {
+    background: linear-gradient(90deg, #1f2937, #1f2937) padding-box,
+                linear-gradient(360deg, #eb306e, #f8166d) border-box;
+  }
+}
