@@ -56,17 +56,22 @@ function App() {
   };
 
   const addTodo = async () => {
+    console.log("addTodo called", { input, userId });
+
     if (input.trim() === "" || !userId) {
+      console.log("Early return - input empty or no userId");
       return;
     }
 
     try {
+      console.log("Adding todo to Firestore...");
       await addDoc(collection(db, "todos"), {
         text: input.trim(),
         priority,
         userId,
         createdAt: new Date(),
       });
+      console.log("Todo added successfully!");
 
       setInput("");
       setPriority("Moyenne");
@@ -172,7 +177,7 @@ function App() {
               <option value="Moyenne">Moyenne</option>
               <option value="Basse">Basse</option>
             </select>
-            <button onClick={addTodo} className="btn btn-primary md:w-auto w-full">
+            <button onClick={addTodo} className="btn btn-primary md:w-auto w-1/2">
               <Plus className="w-5 h-5" />
               <span className="hidden md:inline">Ajouter</span>
             </button>
